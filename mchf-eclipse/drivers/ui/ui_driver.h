@@ -588,6 +588,7 @@ void 	UiDriverClearSpectrumDisplay(void);
 //
 void 	UiDriverChangeBandFilter(uchar band,uchar bpf_only);
 void 	UiDriverChangeFilter(uchar ui_only_update);
+
 void 	UiDriverCreateTemperatureDisplay(uchar enabled,uchar create);
 void 	UiDriverUpdateFrequency(char skip_encoder_check, uchar mode);
 void 	UiDriverCreateSpectrumScope(void);
@@ -597,20 +598,13 @@ void	UiCalcTxIqGainAdj(void);
 void 	UiDriverSetBandPowerFactor(uchar band);
 void 	UiDrawSpectrumScopeFrequencyBarText(void);
 void 	UiCheckForEEPROMLoadDefaultRequest(void);
-//
-void 	UiDriverChangeBandFilter(uchar band,uchar bpf_only);
-void 	UiDriverChangeFilter(uchar ui_only_update);
-void 	UiDriverSetBandPowerFactor(uchar band);
-void	UiCalcRxIqGainAdj(void);
-void	UiCalcTxIqGainAdj(void);
+
 //
 void 	UiDriverChangeStGain(uchar enabled);
 void 	UiDriverChangeCmpLevel(uchar enabled);
 void 	UiDriverChangeKeyerSpeed(uchar enabled);
 void	UiDriverChangeAudioGain(uchar enabled);
 void 	UiDriverChangeRfGain(uchar enabled);
-//
-void 	UIDriverChangeAudioGain(uchar enabled);
 //
 void 	UiDriverShowStep(ulong step);
 //

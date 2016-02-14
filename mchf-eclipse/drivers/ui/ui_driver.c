@@ -1391,9 +1391,9 @@ static void UiDriverProcessKeyboard(void)
 							ts.tx_audio_source = TX_AUDIO_MIC;
 						//
 						if(ts.enc_thr_mode == ENC_THREE_MODE_RIT)	// if encoder in RIT mode, grey out audio gain control
-							UIDriverChangeAudioGain(0);
+							UiDriverChangeAudioGain(0);
 						else									// not RIT mode - don't grey out
-							UIDriverChangeAudioGain(1);
+							UiDriverChangeAudioGain(1);
 					}
 					break;
 				case BUTTON_POWER_PRESSED:
@@ -1542,7 +1542,7 @@ void UiInitRxParms(void)
 		UiDriverChangeStGain(0);			// sidetone gain when in CW mode
 	}
 	else	{
-		UIDriverChangeAudioGain(0);			// display Line/Mic gain and
+		UiDriverChangeAudioGain(0);			// display Line/Mic gain and
 		UiDriverChangeCmpLevel(0);			// Compression level when in voice mode
 	}
 }
@@ -1713,7 +1713,7 @@ static void UiDriverProcessFunctionKeyClick(ulong id)
 				if(ts.dmod_mode == DEMOD_CW)
 					UiDriverChangeKeyerSpeed(0);
 				else
-					UIDriverChangeAudioGain(0);
+					UiDriverChangeAudioGain(0);
 				//
 				UiDriverChangeRit(0);
 				//
@@ -2560,7 +2560,7 @@ static void UiDriverCreateDesktop(void)
 	if(ts.dmod_mode == DEMOD_CW)
 		UiDriverChangeKeyerSpeed(0);
 	else
-		UIDriverChangeAudioGain(0);
+		UiDriverChangeAudioGain(0);
 	//
 	cw_gen_init();
 
@@ -4496,7 +4496,7 @@ static void UiDriverTimeScheduler(void)
 				ts.enc_thr_mode = ENC_THREE_MODE_CW_SPEED;
 				UiDriverChangeRit(0);
 				if(ts.dmod_mode != DEMOD_CW)
-					UIDriverChangeAudioGain(1);		// enable audio gain
+					UiDriverChangeAudioGain(1);		// enable audio gain
 /*				else
 					UiDriverChangeKeyerSpeed(1);	// enable keyer speed if it was CW mode
 */
@@ -4521,7 +4521,7 @@ static void UiDriverTimeScheduler(void)
 				if(ts.enc_thr_mode == ENC_THREE_MODE_RIT)	{		// are we to switch back to RIT mode?
 					UiDriverChangeRit(1);			// enable RIT
 					if(ts.dmod_mode != DEMOD_CW)
-						UIDriverChangeAudioGain(0);		// disable audio gain if it was voice mode
+						UiDriverChangeAudioGain(0);		// disable audio gain if it was voice mode
 /*					else
 						UiDriverChangeKeyerSpeed(0);	// disable keyer speed if it was CW mode
 */
@@ -5596,7 +5596,7 @@ static void UiDriverCheckEncoderThree(void)
 						}
 					}
 				}
-				UIDriverChangeAudioGain(1);
+				UiDriverChangeAudioGain(1);
 				//
 				// If using a serial (SPI) LCD, hold off on updating the spectrum scope for a time AFTER we stop twiddling the tuning knob.
 				//
@@ -5796,7 +5796,7 @@ static void UiDriverChangeEncoderThreeMode(uchar skip)
 			if(ts.dmod_mode == DEMOD_CW)
 				UiDriverChangeKeyerSpeed(0);
 			else
-				UIDriverChangeAudioGain(0);
+				UiDriverChangeAudioGain(0);
 
 			break;
 		}
@@ -5809,7 +5809,7 @@ static void UiDriverChangeEncoderThreeMode(uchar skip)
 			if(ts.dmod_mode == DEMOD_CW)
 				UiDriverChangeKeyerSpeed(1);
 			else
-				UIDriverChangeAudioGain(1);
+				UiDriverChangeAudioGain(1);
 
 			break;
 		}
@@ -5823,7 +5823,7 @@ static void UiDriverChangeEncoderThreeMode(uchar skip)
 			if(ts.dmod_mode == DEMOD_CW)
 				UiDriverChangeKeyerSpeed(0);
 			else
-				UIDriverChangeAudioGain(0);
+				UiDriverChangeAudioGain(0);
 
 			break;
 		}
@@ -6115,7 +6115,7 @@ void UiDriverChangeKeyerSpeed(uchar enabled)
 //* Output Parameters   :
 //* Functions called    :
 //*----------------------------------------------------------------------------
-void UIDriverChangeAudioGain(uchar enabled)
+void UiDriverChangeAudioGain(uchar enabled)
 {
 	ushort 	color = Grey;
 	char	temp[100];

@@ -1459,7 +1459,7 @@ static void UiDriverUpdateMenuLines(uchar index, uchar mode)
 			if(ts.dmod_mode == DEMOD_CW)
 				UiDriverChangeKeyerSpeed(0);
 			else
-				UIDriverChangeAudioGain(0);
+				UiDriverChangeAudioGain(0);
 		}
 		break;
 	//
@@ -1490,7 +1490,7 @@ static void UiDriverUpdateMenuLines(uchar index, uchar mode)
 			if(ts.dmod_mode == DEMOD_CW)
 				UiDriverChangeKeyerSpeed(0);
 			else
-				UIDriverChangeAudioGain(0);
+				UiDriverChangeAudioGain(0);
 		}
 		//
 		if(ts.tx_audio_source != TX_AUDIO_MIC)	// Orange if not in MIC-IN mode
@@ -1515,7 +1515,7 @@ static void UiDriverUpdateMenuLines(uchar index, uchar mode)
 			if(ts.dmod_mode == DEMOD_CW)
 				UiDriverChangeKeyerSpeed(0);
 			else	{		// in voice mode
-				UIDriverChangeAudioGain(0);
+				UiDriverChangeAudioGain(0);
 				if(ts.txrx_mode == TRX_MODE_TX)		// in transmit mode?
 					Codec_Line_Gain_Adj(ts.tx_line_gain);		// change codec gain
 			}
@@ -1620,7 +1620,7 @@ static void UiDriverUpdateMenuLines(uchar index, uchar mode)
 			if(ts.dmod_mode == DEMOD_CW)		// yes, update on-screen info
 				UiDriverChangeKeyerSpeed(0);
 			else
-				UIDriverChangeAudioGain(0);
+				UiDriverChangeAudioGain(0);
 		}
 		//
 		sprintf(options, "  %u", ts.keyer_speed);
