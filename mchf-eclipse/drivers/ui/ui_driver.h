@@ -599,7 +599,6 @@ void 	UiDriverSetBandPowerFactor(uchar band);
 void 	UiDrawSpectrumScopeFrequencyBarText(void);
 void 	UiCheckForEEPROMLoadDefaultRequest(void);
 
-//
 void 	UiDriverChangeStGain(uchar enabled);
 void 	UiDriverChangeCmpLevel(uchar enabled);
 void 	UiDriverChangeKeyerSpeed(uchar enabled);
@@ -637,6 +636,21 @@ void 	UiCalcSubaudibleDetFreq(void);		// load/set current FM subaudible tone set
 bool	check_tp_coordinates(uint8_t,uint8_t,uint8_t,uint8_t);
 
 void UiDriverSetDemodMode(uint32_t new_mode); // switch to different demodulation mode.
+
+
+// encoder one
+void 	UiDriverChangeAfGain(uchar enabled);
+//void 	UiDriverChangeStGain(uchar enabled);
+//void 	UiDriverChangeKeyerSpeed(uchar enabled);
+// encoder two
+//void 	UiDriverChangeRfGain(uchar enabled);
+void 	UiDriverChangeSigProc(uchar enabled);
+// encoder three
+void 	UiDriverChangeRit(uchar enabled);
+//void 	UiDriverChangeFilter(uchar ui_only_update);
+
+
+
 //
 //
 #define	SIDETONE_MAX_GAIN	10		// Maximum sidetone gain
@@ -764,6 +778,9 @@ STATE_UPDATE_FREQUENCY,			//
 STATE_PROCESS_KEYBOARD,			//
 STATE_SWITCH_OFF_PTT			//
 };
+
+// Tuning steps
+const ulong tune_steps[T_STEP_MAX_STEPS];
 //
 // Used for press-and-hold "temporary" step size adjust
 //
