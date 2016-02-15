@@ -339,14 +339,18 @@ void UiLcdHy28_SendByteSpi(uint8_t byte)
    SPI_I2S_ReceiveData(SPI2);
 
 }
+
+#pragma GCC push_options
+#pragma GCC optimize ("O0")
 void UiLcdHy28_SendByteSpiFast(uint8_t byte)
 {
-
    while ((SPI2->SR & (SPI_I2S_FLAG_TXE)) == (uint16_t)RESET);
    SPI2->DR = byte;
    while ((SPI2->SR & (SPI_I2S_FLAG_RXNE)) == (uint16_t)RESET);
-   byte = SPI2->DR;
+   byte = SPI2->DR; //DR must be before some internal SPI things are ready for further operations.
 }
+#pragma GCC pop_options
+
 static void UiLcdHy28_FinishSpiTransfer()
 {
 	while (SPI2->SR & SPI_I2S_FLAG_BSY);
